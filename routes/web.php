@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CheckController;
 use App\Http\Controllers\CiriController;
+use App\Http\Controllers\DiagnosaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 // home
 Route::get('/',[HomeController::class,'index'])->name('home.index');
 Route::resource('ciri', CiriController::class);
+Route::resource('diagnosa', DiagnosaController::class);
 
 // ciri
 
