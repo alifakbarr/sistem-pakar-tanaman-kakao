@@ -15,7 +15,7 @@ class CreateCirisTable extends Migration
     {
         Schema::create('ciris', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_ciri')->unique();
+            $table->string('kode_ciri');
             $table->string('ciri_penyakit');
             $table->timestamps();
         });

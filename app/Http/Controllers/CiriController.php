@@ -27,7 +27,7 @@ class CiriController extends Controller
      */
     public function create()
     {
-        //
+        return view('ciri/create');
     }
 
     /**
@@ -70,7 +70,8 @@ class CiriController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ciri = Ciri::where('id',$id)->first();
+        return view('ciri/edit', compact('ciri'));
     }
 
     /**
@@ -82,7 +83,13 @@ class CiriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data=[
+            'ciri_penyakit' => $request->ciri_penyakit,
+        ];
+
+        Ciri::where('id',$id)->update($data);
+
+        return redirect()->route('ciri.index');
     }
 
     /**
@@ -93,6 +100,7 @@ class CiriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Ciri::destroy($id);
+        return redirect()->route('ciri.index');
     }
 }
