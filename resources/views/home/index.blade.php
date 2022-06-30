@@ -91,32 +91,33 @@
         <div class="card-body">
           <a href="{{ route('ciri.create') }}" class="btn btn-success mb-2">Tambah</a>
           <div class="table-wrapper-scroll-y my-custom-scrollbar">
-          <table class="table border border-primary table-striped mb-0">
-            <thead class="bg-primary text-light">
-              <tr>
-                <th scope="col">No</th>
-                <th scope="col">Kode Ciri</th>
-                <th scope="col">Ciri Penyakit</th>
-                <th scope="col">Opsi</th>
-              </tr>
-            </thead>
-            <tbody>
-              @php ($no=1)
-              @foreach ($ciris as $ciri)                  
-              <tr>
-                <th scope="row">{{ $no++ }}</th>
-                <td>{{ ucwords($ciri->kode_ciri) }}</td>
-                <td >{{ $ciri->ciri_penyakit }}</td>
-                <td>
-                  <a href="{{ route('ciri.edit',$ciri->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ciri{{ $ciri->id }}">
-                    Hapus
-                  </button>
-                </td>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
+            <table class="table border border-primary table-striped mb-0">
+              <thead class="bg-primary text-light">
+                <tr>
+                  <th scope="col">No</th>
+                  <th scope="col">Kode Ciri</th>
+                  <th scope="col">Ciri Penyakit</th>
+                  <th scope="col">Opsi</th>
+                </tr>
+              </thead>
+              <tbody>
+                @php ($no=1)
+                @foreach ($ciris as $ciri)                  
+                <tr>
+                  <th scope="row">{{ $no++ }}</th>
+                  <td>{{ ucwords($ciri->kode_ciri) }}</td>
+                  <td >{{ $ciri->ciri_penyakit }}</td>
+                  <td>
+                    <a href="{{ route('ciri.edit',$ciri->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ciri{{ $ciri->id }}">
+                      Hapus
+                    </button>
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
           </div>
         </div>
       </div>
@@ -163,6 +164,7 @@
               </tbody>
             </table>
             </div>
+        </div>
         </div>
       </div>
     </div>

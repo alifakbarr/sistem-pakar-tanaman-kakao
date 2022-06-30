@@ -16,8 +16,8 @@ class CiriController extends Controller
     public function index()
     {
 
-        $ciris = Ciri::all();
-        return view('ciri/index', compact('ciris'));
+        // $ciris = Ciri::all();
+        // return view('ciri/index', compact('ciris'));
     }
 
     /**
@@ -48,7 +48,7 @@ class CiriController extends Controller
             'ciri_penyakit' => $request->ciri_penyakit
         ]);
 
-        return redirect()->route('home.index');
+        return redirect()->route('home.index2');
     }
 
     /**
@@ -83,13 +83,16 @@ class CiriController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'ciri_penyakit' => ['required'],
+        ]);
         $data=[
             'ciri_penyakit' => $request->ciri_penyakit,
         ];
 
         Ciri::where('id',$id)->update($data);
 
-        return redirect()->route('home.index');
+        return redirect()->route('home.index2');
     }
 
     /**
@@ -101,6 +104,6 @@ class CiriController extends Controller
     public function destroy($id)
     {
         Ciri::destroy($id);
-        return redirect()->route('home.index');
+        return redirect()->route('home.index2');
     }
 }

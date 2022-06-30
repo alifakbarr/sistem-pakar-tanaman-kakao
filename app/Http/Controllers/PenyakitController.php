@@ -45,7 +45,7 @@ class PenyakitController extends Controller
             'nama_penyakit' => $request->nama_penyakit
         ]);
 
-        return redirect()->route('home.index');
+        return redirect()->route('home.index2');
     }
 
     /**
@@ -80,6 +80,11 @@ class PenyakitController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'kode_penyakit' => ['required'],
+            'nama_penyakit' => ['required'],
+        ]);
+
         $data=[
             'kode_penyakit' => $request->kode_penyakit,
             'nama_penyakit' => $request->nama_penyakit,
@@ -87,7 +92,7 @@ class PenyakitController extends Controller
 
         Penyakit::where('id',$id)->update($data);
 
-        return redirect()->route('home.index');
+        return redirect()->route('home.index2');
     }
 
     /**
@@ -99,6 +104,6 @@ class PenyakitController extends Controller
     public function destroy($id)
     {
         Penyakit::destroy($id);
-        return redirect()->route('home.index');
+        return redirect()->route('home.index2');
     }
 }

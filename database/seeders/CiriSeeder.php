@@ -60,7 +60,7 @@ class CiriSeeder extends Seeder
                 'ciri_penyakit' => 'Ranting rapuh bila di patahkan'
             ],
             [
-                'kode_ciri' => 'C12',
+                'kode_ciri' => 'c12',
                 'ciri_penyakit' => 'Daun terlihat berubah warna menjadi merah dan rontok'
             ],
             [
