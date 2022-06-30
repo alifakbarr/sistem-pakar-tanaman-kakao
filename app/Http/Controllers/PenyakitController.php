@@ -2,22 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ciri;
+use App\Models\Penyakit;
 use Illuminate\Http\Request;
 
-class CiriController extends Controller
+class PenyakitController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-
-        $ciris = Ciri::all();
-        return view('ciri/index', compact('ciris'));
+        
     }
 
     /**
@@ -27,7 +24,7 @@ class CiriController extends Controller
      */
     public function create()
     {
-        return view('ciri/create');
+        return view('penyakit/create');
     }
 
     /**
@@ -39,13 +36,13 @@ class CiriController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'kode_ciri' => ['required'],
-            'ciri_penyakit' => ['required'],
+            'kode_penyakit' => ['required'],
+            'nama_penyakit' => ['required'],
         ]);
 
-        Ciri::create([
-            'kode_ciri' => $request->kode_ciri,
-            'ciri_penyakit' => $request->ciri_penyakit
+        Penyakit::create([
+            'kode_penyakit' => $request->kode_penyakit,
+            'nama_penyakit' => $request->nama_penyakit
         ]);
 
         return redirect()->route('home.index');
@@ -70,8 +67,8 @@ class CiriController extends Controller
      */
     public function edit($id)
     {
-        $ciri = Ciri::where('id',$id)->first();
-        return view('ciri/edit', compact('ciri'));
+        $penyakit = Penyakit::where('id',$id)->first();
+        return view('penyakit/edit',compact('penyakit'));
     }
 
     /**
@@ -84,10 +81,11 @@ class CiriController extends Controller
     public function update(Request $request, $id)
     {
         $data=[
-            'ciri_penyakit' => $request->ciri_penyakit,
+            'kode_penyakit' => $request->kode_penyakit,
+            'nama_penyakit' => $request->nama_penyakit,
         ];
 
-        Ciri::where('id',$id)->update($data);
+        Penyakit::where('id',$id)->update($data);
 
         return redirect()->route('home.index');
     }
@@ -100,7 +98,7 @@ class CiriController extends Controller
      */
     public function destroy($id)
     {
-        Ciri::destroy($id);
+        Penyakit::destroy($id);
         return redirect()->route('home.index');
     }
 }

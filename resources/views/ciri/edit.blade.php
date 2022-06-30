@@ -10,7 +10,7 @@
         <p class="fw-bold">Edit Ciri Penyakit</p>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Kode</label>
-            <input type="text" disabled class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode" value="{{ $ciri->kode_ciri }}">
+            <input type="text" disabled class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode" value="{{ ucwords($ciri->kode_ciri) }}">
           </div>
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Ciri penyakit</label>
