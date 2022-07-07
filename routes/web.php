@@ -24,8 +24,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // home
-Route::get('/',[HomeController::class,'index'])->name('home.index');
-Route::get('/index2',[HomeController::class,'index2'])->name('home.index2');
+// Route::get('/',[HomeController::class,'index'])->name('home.index');
+Route::get('/',[HomeController::class,'index2'])->name('home.index2');
 Route::post('home/diagnosa',[HomeController::class,'diagnosa'])->name('home.diagnosa');
 Route::resource('ciri', CiriController::class);
 Route::resource('penyakit', PenyakitController::class);
